@@ -1,0 +1,15 @@
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
+    SinglyLinkedListNode *prevNode = NULL;
+    SinglyLinkedListNode *curNode  = head;
+    SinglyLinkedListNode *nextNode = NULL;
+
+    while (curNode != NULL) {
+        nextNode = curNode->next;   // save next
+        curNode->next = prevNode;   // reverse link
+        prevNode = curNode;         // move prev forward
+        curNode  = nextNode;        // move current forward
+    }
+    // prevNode is the new head
+    printf("SUCCESSFULLY REVERSED\n");
+    return prevNode;
+}
